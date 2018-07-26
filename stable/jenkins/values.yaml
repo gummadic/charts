@@ -172,10 +172,15 @@ Persistence:
   ##
   # StorageClass: "-"
 
+  StorageClass: "aws-efs"
+
   Annotations: {}
-  AccessMode: ReadWriteOnce
+  AccessMode: ReadWriteMany
   Size: 8Gi
   volumes:
+     - name: pv-volume
+       persistentVolumeClaim:
+         claimName: my-efs-vol-1
   #  - name: nothing
   #    emptyDir: {}
   mounts:
